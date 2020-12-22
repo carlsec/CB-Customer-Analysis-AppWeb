@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Blent</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  
+</head>
+
+<body style="background: #fff;">
+ <div class="login">
+  <h1>Análise de cadastro - Coffee Blent</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="customers" placeholder="Cliente" required="required" />
+      <input type="number" name="protests" placeholder="Protestos" required="required" />
+      <input type="number" name="amountdue" placeholder="Valor total devido" required="required" />
+      <input type="number" name="amountrent" placeholder="Valor da locação" required="required" />
+      <input type="text" name="city" placeholder="Cidade" required="required" />
+      <input type="text" name="commerce" placeholder="Comercio" required="required" />
+      <input type="number" name="consumes" placeholder="Consumo" required="required" />
+      <input type="text" name="equipment" placeholder="Equipamento" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predição</button>
+    </form>
+
+   <br>
+   <br>
+   <h1>Previsão Coffee Blent</h1>
+   <h3>{{ prediction }}</h3>
+
+ </div>
+</body>
+</html>
