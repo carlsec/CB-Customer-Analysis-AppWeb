@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 from flask import Flask, request, render_template, make_response
 import joblib
@@ -36,11 +39,11 @@ def predict():
 	result = model.predict(df)
 
 	if result == 1:
-		prediction = (f"O cliente {customers} se enquadra nos clientes bons pagadores!")
+		prediction = f"O cliente {customers} se enquadra nos clientes bons pagadores!"
 	else:
-	    prediction = (f"O cliente {customers} se enquadra nos clientes maus pagadores!")	
+	    prediction = f"O cliente {customers} se enquadra nos clientes maus pagadores!"	
 
-	return render_template('template.html', prediction='Previsão {}'.format(prediction))
+	return render_template('template.html', prediction=f'{prediction}', Cliente = customers)
 
 if __name__ == "__main__":
     app.run(debug=True)
