@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Coffee Blent</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-
   
 </head>
 
 <body style="background: #fff;">
-  <div class="container">
-      <h1>Análise de cadastro - Coffee Blent</h1>
+  <div align="center">
+    <img src="../static/logosite13.jpeg" width="300px" class="img-fluid" alt="...">
+    <br>
+  <div  class="container">
+      <h3>Análise de cadastro</h3>
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict', Cliente = customers)}}"method="post">
     <div class="col-md-5">
@@ -23,35 +24,34 @@
     <input type="text" name="protests" class="form-control" id="" aria-describedby="emailHelp">
     </div>
     <div class="col-md-5">
-    <label for="" class="form-label">Valor total devido</label>
-    <input type="text" name="amountdue" class="form-control" id="" aria-describedby="emailHelp">
+    <label for="" class="form-label">Valor total dos protestos</label>
+    <input type="text" name="amount due" class="form-control" id="" aria-describedby="emailHelp">
     </div>
     <div class="col-md-5">
     <label for="" class="form-label">Valor da locação</label>
-    <input type="text" name="amountrent" class="form-control" id="" aria-describedby="emailHelp">
+    <input type="text" name="rent amount" class="form-control" id="" aria-describedby="emailHelp">
     </div>
     <div class="col-md-5">
     <label for="inputState" class="form-label">Cidade</label>
     <select name ='city' id="inputState" class="form-select">
-      <option value='sorocaba' selected>Sorocaba</option>
-      <option value='votoramtim' selected>Votoramtim</option>
-      <option value='itu' selected>Itu</option>
-      <option value='campinas' selected>Campinas</option>
-      <option value='indaiatuba' selected>Indaiatuba</option>
-      <option value='são roque' selected>São Roque</option>
-      <option value='boituva' selected>Boituva</option>
-      <option value='pilar do sul' selected>Pilar do Sul</option>
-      <option value='tatui' selected>Tatui</option>
+      <option value='city_1' selected>Sorocaba/Votoramtim</option>
+      <option value='city_2' selected>Itu</option>
+      <option value='city_6' selected>Campinas</option>
+      <option value='city_4' selected>Indaiatuba</option>
+      <option value='city_7' selected>São Roque</option>
+      <option value='city_3' selected>Boituva</option>
+      <option value='city_5' selected>Pilar do Sul</option>
+      <option value='city_8' selected>Tatui</option>
     </select>
     </div>
     <div class="col-md-5">
     <label for="inputState" class="form-label">Comercio</label>
     <select name ='commerce' id="inputState" class="form-select">
-      <option value='padaria' selected>Padaria</option>
-      <option value='cafeteria' selected>Cafeteria</option>
-      <option value='conveniencia' selected>Conveniencia</option>
-      <option value='cabeleleiro' selected>Cabeleleiro</option>
-      <option value='outro' selected>Outro</option>
+      <option value='commerce_1' selected>Padaria</option>
+      <option value='commerce_2' selected>Cafeteria</option>
+      <option value='commerce_3' selected>Conveniencia</option>
+      <option value='commerce_4' selected>Cabeleleiro</option>
+      <option value='commerce_5' selected>Outro</option>
     </select>
     </div>
 
@@ -64,23 +64,20 @@
     </div>
 
     <div class="col-md-5">
-    <label for="inputState" class="form-label">equipment</label>
+    <label for="inputState" class="form-label">Equipamento</label>
     <select name ='equipment' id="inputState" class="form-select">
-      <option value='grupo' selected>Máquina de grupo</option>
-      <option value='vending' selected>Máquina vending</option>
-      <option value='super' selected>Máquina autómatica</option>
+      <option value='equipment_1' selected>Máquina de grupo</option>
+      <option value='equipment_2' selected>Máquina vending</option>
+      <option value='equipment_3' selected>Máquina autómatica</option>
     </select>
-    </div>
+    </div><br>
         <button type="submit" class="btn btn-primary btn-block btn-large">Predição</button>
     </form>
 
    <br>
-   <br>
-   <h1>Previsão</h1>
-   <h3>{{ prediction }}</h3>
   
   </div>
-  
+  </div>
  </div>
  <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
