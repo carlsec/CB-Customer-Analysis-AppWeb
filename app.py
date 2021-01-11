@@ -28,20 +28,21 @@ def predict():
 	consumes = np.array(request.form['consumes'])
 	equipment = np.array(request.form['equipment'])
 	amountrent = amountrent.astype(float)
+	amountrent = (amountrent * 1000)/50
 	protests = protests.astype(int)
+	protests = (protests * 1000)/50
 	amountdue = amountdue.astype(float)
+	amountdue = (amountdue * 1000)/50
 	consumes = consumes.astype(int)
-	di = {'protests': protests, 'amountdue': amountdue, 'amountrent': amountrent, 'city': city, 'commerce': commerce, 'consumes': consumes, 'equipment': equipment}
+	di = {'protests': protests, 'amount due': amountdue, 'rent amount': amountrent, 'city': city, 'commerce': commerce, 'consumes': consumes, 'equipment': equipment}
 	df = pd.DataFrame(di,  index=[0])
 	df_cat = df[['city', 'commerce', 'equipment']]
 	df_cat = df_cat.apply(lambda x: d[x.name].fit_transform(x))
-	df_num = df[['protests', 'amountdue', 'amountrent','consumes']]
+	df_num = df[['protests', 'amount due', 'rent amount','consumes']]
 	df = pd.concat([df_num,df_cat], axis = 1)
-	print(df.columns)
 	result_gb = model_gb.predict_proba(df)[:, 1]
 	result_lgbm = model_lgbm.predict_proba(df)[:, 1]
-	result = (result_gb*0.3) + (result_lgbm*0.7)
-	print(f"{result} AOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+	result = (result_gb*0.5) + (result_lgbm*0.5)
 	result = (result[0]).astype(float) * 100
 	result = round(result, 2)
 
