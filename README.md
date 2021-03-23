@@ -1,7 +1,7 @@
 # CB-Customer-Analysis-AppWeb
 Coffee Blent - Analysis Customer is good payer - App Web with Flask
 
-Aplicação para detectar clientes que são mals pagadores.
+Aplicação para detectar clientes que são maus pagadores.
 
 Foi usado Gradient boosting e LGBM em conjunto para as previsões.
 Nos dados de teste foi obtido os seguintes resultados em média: 
